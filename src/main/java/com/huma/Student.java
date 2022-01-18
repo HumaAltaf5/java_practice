@@ -5,6 +5,7 @@ public class Student {
     private char grade;
     private int group;
     private String secretNickName = "MySecretNickName";
+    private final char[] gradeArray = {'A', 'B', 'C', 'D', 'E', 'F'};
 
     Student(String name, char grade, int group) {
         this.name = name;
@@ -25,16 +26,15 @@ public class Student {
     }
 
     public char upGrade() {
-        char[] upArray = {'A', 'B', 'C', 'D', 'E', 'F'};
         char newUpGrade = '\0';
         char currentGrade = getGrade();
         if (currentGrade == 'A') {
             System.out.println("Cannot upgrade grade A \n");
             newUpGrade =  currentGrade;
         } else if (currentGrade == 'B' || currentGrade == 'C' || currentGrade == 'D' || currentGrade == 'E' || currentGrade == 'F') {
-            for (int i = 0; i <  upArray.length; i++) {
-                if (currentGrade == upArray[i]) {
-                    newUpGrade = upArray[i - 1];
+            for (int i = 0; i <  gradeArray.length; i++) {
+                if (currentGrade == gradeArray[i]) {
+                    newUpGrade = gradeArray[i - 1];
                     System.out.println("The student is upgraded to " + newUpGrade + "\n");
                     return newUpGrade;
                 }
@@ -45,16 +45,15 @@ public class Student {
     }
 
     public char downGrade() {
-        char[] downArray = {'A', 'B', 'C', 'D', 'E', 'F'};
         char newDownGrade = '\0';
         char currentGrade = getGrade();
         if (currentGrade == 'F') {
             System.out.println("Cannot downgrade grade F \n");
             newDownGrade =  currentGrade;
         } else if (currentGrade == 'A' || currentGrade == 'B' || currentGrade == 'C' || currentGrade == 'D' || currentGrade == 'E') {
-            for (int i = 0; i <  downArray.length; i++) {
-                if (currentGrade == downArray[i]) {
-                    newDownGrade = downArray[i + 1];
+            for (int i = 0; i <  gradeArray.length; i++) {
+                if (currentGrade == gradeArray[i]) {
+                    newDownGrade = gradeArray[i + 1];
                     System.out.println("The student is downgraded to " + newDownGrade + "\n");
                     return newDownGrade;
                 }
